@@ -92,7 +92,8 @@ app.post('/login', async(req,res) =>{
         return
     }
 
-    res.status(201).send(JSON.stringify({Mensagem:`Seja bem vindo ${validatingEmail.name} ! Pessoa usuária logada com sucesso!`}))
+    res.status(201).send(JSON.stringify({Mensagem:`Seja bem vindo ${validatingEmail.name} ! Pessoa usuária logada com sucesso!`,
+                                        data:email}))
 
 })
 
@@ -135,7 +136,7 @@ app.post('/:validatingemail/message', (req,res)=>{
     messages.push(newMessage)
     idMensagen++
 
-    res.status(201).send(JSON.stringify({Mensgem:"Mensagem criada com sucesso!",
+    res.status(201).send(JSON.stringify({Mensagem:"Mensagem criada com sucesso!",
     titulo: newMessage.title,
     descricao: newMessage.description }))
 
